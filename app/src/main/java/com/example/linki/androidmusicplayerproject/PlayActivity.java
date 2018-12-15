@@ -96,22 +96,7 @@ public class PlayActivity extends AppCompatActivity {
         updateseelBar.start();
         songSeekbar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
         songSeekbar.getThumb().setColorFilter(getResources().getColor(R.color.colorPrimary),PorterDuff.Mode.MULTIPLY);
-        myMediaPlayerl.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                myMediaPlayerl.stop();
-                myMediaPlayerl.release();
-                position=((position+1)%mySongs.size());
-
-                Uri u = Uri.parse(mySongs.get(position).toString());
-                myMediaPlayerl = MediaPlayer.create(getApplicationContext(), u);
-                sname = mySongs.get(position).getName().toString();
-                songTextLabe.setText(sname);
-                myMediaPlayerl.start();
-                }
-
-
-        });
+       
 
 
         songSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
